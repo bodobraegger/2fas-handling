@@ -56,12 +56,8 @@ def main():
     # Convert to Aegis format
     aegis_data = convert_2fas_to_aegis(data_2fas)
 
-    # Save the Aegis JSON file
-    output_name = sys.argv[2] if len(sys.argv) > 2 else "aegis_export.json"
-    with open(output_name, "w") as f:
-        json.dump(aegis_data, f, indent=4)
-
-    print(f"Conversion complete! Aegis JSON saved as '{output_name}'.")
+    # Print the Aegis JSON to stdout, can be redirected to a file
+    json.dump(aegis_data, sys.stdout, indent=4)
 
 if __name__ == "__main__":
     main()
